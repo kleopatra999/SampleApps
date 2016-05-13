@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="bower_components/switchery/dist/switchery.css"/>
+    <link rel="stylesheet" href="style.css"> 
+
+    <!--Refering manifest.json for Chrome Push Notificatiosn-->
+    <link rel="manifest" href="manifest.json">
+  </head>
+
+<body>
+
+<div class="wrapper">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12">
+          <div style="height:99.5vh; width: 100%;" class="flex-general-column-wrapper-center">
+
+            <div>
+              <div class="flex-general-row-wrapper">
+
+                <div style="height: 32px;" class="solo-vertical-center">
+                  <span style="font-size: 18px;color: #777777;">Enable Browser Notifications</span>
+                </div>
+                <div style="margin-left:20px; "> 
+                  <input type="checkbox" class="js-switch switchery-large"/>                  
+                </div>
+
+              </div>
+
+              <!--Enable or Disable Button-->
+              <div  class="flex-general-column-wrapper-center" style="margin-top: 30px;width: 340px;">
+             
+                <div style="margin-left:20px; " class="toogle-btn"> 
+                  <button style="background-color: #549afc;color:white;height: 35px;padding-left: 10px;padding-right: 10px;" class="default-inputfield send-pushbtn">Send Push Notification</button>                  
+                </div>
+
+              </div>
+              <!--Enable or Disable Button-->
+
+              <div class="flex-general-column-wrapper-center" style="margin-top: 10px;width: 280px;">
+             
+                <div> 
+                  <span class="errortxt" style="font-size: 12px;color: red;"></span>
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<!--<script src="https://cloudboost.io/js-sdk/cloudboost.js"></script>-->
+<script src="https://cloudboost.io/js-sdk/cloudboost.js"></script>
+<script src="bower_components/switchery/dist/switchery.js"></script> 
+<script>
+function getParameterByName(name) {
+    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+        results = regex.exec(location.search);
+    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+}
+
+$(document).ready(function(){
+  CB.CloudApp.init("nbiigrzrkrek", "aa7c73bf-5163-45d4-94e0-4dc834350d16");
+
+  var elem = document.querySelector('.js-switch');
+  var init = new Switchery(elem);
+  $(".toogle-btn").hide();
+  $(".errortxt").text("");
+
+});
+
+var clickCheckbox = document.querySelector('.js-switch');
+clickCheckbox.addEventListener('change', function() {
+  //alert(clickCheckbox.checked);
+  $(".errortxt").text("");
+  if(clickCheckbox.checked){
+    enableNotifications();
+  }else{
+    disableNotifications();
+  }
+});
+
+var sendpushbtn = document.querySelector('.send-pushbtn');
+sendpushbtn.addEventListener('click', function() { 
+  $(".errortxt").text(""); 
+  if(clickCheckbox.checked){
+    sendNotifications("Sample Notification","This is a sample Notification.");
+  }
+});
+
+
+function enableNotifications(){
+  CB.CloudPush.enableWebNotifications({
+      success:function(){
+          //Enabled
+          $(".toogle-btn").show();
+      },
+      error:function(error){
+          console.log(error);
+          $(".toogle-btn").hide();
+          $(".errortxt").text(error);
+      }
+  });
+}
+
+function disableNotifications(){
+  CB.CloudPush.disableWebNotifications({
+      success:function(){
+          //Disabled
+          $(".toogle-btn").hide();
+      },
+      error:function(error){
+          console.log(error);
+          $(".toogle-btn").hide();
+          $(".errortxt").text(error);
+      }
+  });
+}
+
+function sendNotifications(title,message){
+  var pushData={
+    title:title,
+    message:message
+  };
+
+  CB.CloudPush.send(pushData,{
+      success:function(data){
+        console.log(data);
+      },
+      error:function(error){
+        console.log(error);
+        $(".errortxt").text(error);
+      }
+  });
+}
+
+</script>
+</body>
+</html>

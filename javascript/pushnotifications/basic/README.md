@@ -15,6 +15,9 @@ Add credentials which you obtained from above step (appId and AppKey) in CB.Clou
 To receive Push Notifications in Chrome, add **gcm_sender_i** in manifest.json.
 for more infor check [CloudBoost Push Notifications Tutorials](https://tutorials.cloudboost.io/en/pushnotifications/javascript)
 
+# Test
+Open http://cloudboost.github.io/SampleApps/javascript/pushnotifications/basic in browser to test 
+
 **Important**
 * Make sure serviceWorker.js and file is present in root
 * 

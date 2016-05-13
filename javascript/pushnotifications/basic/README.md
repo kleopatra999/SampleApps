@@ -7,17 +7,17 @@ Goto [https://cloudboost.github.io/SampleApps/javascript/pushnotifications/basic
 
 ## Steps to run this project locally.
 
-### Get the API Keys
+#### Get the API Keys
 Go to [CloudBoost Dashboard](https://dashboard.cloudboost.io), create a new  app, and get your app keys.
 
-## Save API Keys in index.html
+####Save API Keys in index.html
 Add API Keys which you obtained from step 1 in CB.CloudApp.init() function in index.html
 
-## For Chorme Support
+####For Chorme Support
 To receive Push Notifications in Chrome, add **gcm_sender_id** in manifest.json.
 For more information check [CloudBoost Push Notifications Tutorials](https://tutorials.cloudboost.io/en/pushnotifications/javascript)
 
-## Run this project locally. 
+####Run this project locally. 
 
 This is a NodeJS Project. However, You don't need NodeJS to work on PushNotifications. We use NodeJS to run this project in `localhost` You need to install NodeJS. Run `npm install` and then run `node server.js` to run this project on your local dev machine. 
 

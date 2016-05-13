@@ -64,12 +64,7 @@
 <script src="https://cloudboost.io/js-sdk/cloudboost.js"></script>
 <script src="bower_components/switchery/dist/switchery.js"></script> 
 <script>
-function getParameterByName(name) {
-    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
-    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
-        results = regex.exec(location.search);
-    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
-}
+
 
 $(document).ready(function(){
   CB.CloudApp.init("nbiigrzrkrek", "aa7c73bf-5163-45d4-94e0-4dc834350d16");
@@ -82,8 +77,7 @@ $(document).ready(function(){
 });
 
 var clickCheckbox = document.querySelector('.js-switch');
-clickCheckbox.addEventListener('change', function() {
-  //alert(clickCheckbox.checked);
+clickCheckbox.addEventListener('change', function() {  
   $(".errortxt").text("");
   if(clickCheckbox.checked){
     enableNotifications();

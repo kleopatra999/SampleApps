@@ -14,7 +14,7 @@ Go to [CloudBoost Dashboard](https://dashboard.cloudboost.io), create a new  app
 Add API Keys which you obtained from step 1 in CB.CloudApp.init() function in index.html
 
 ####Add Security exception
-You will need to add a security exception to your web browser when you running locally(because it needs to be secure connection)
+You will need to add a security exception to your web browser when you running locally(Since Push require https to work for security purposes)
 
 ####For Chrome Support
 To receive Push Notifications in Chrome, add **gcm_sender_id** in manifest.json.

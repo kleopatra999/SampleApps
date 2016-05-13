@@ -6,10 +6,10 @@
 # How to run this
 
 ## Get the credentials
-Go to [CloudBoost Dashboard](https://dashboard.cloudboost.io) and create your app, and get the credentials.
+Go to [CloudBoost Dashboard](https://dashboard.cloudboost.io), create your app, and get the credentials.
 
 ## Add credentials index.html
-Add credentials which you obtained from above step (appId and AppKey) in CB.CloudApp.init() function in index.html.
+Add credentials which you obtained from above step (AppId and AppKey) in CB.CloudApp.init() function in index.html.
 
 ## For Chorme Support
 To receive Push Notifications in Chrome, add **gcm_sender_i** in manifest.json.

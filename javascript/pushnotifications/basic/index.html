@@ -40,6 +40,15 @@
                   <button style="background-color: #549afc;color:white;height: 35px;padding-left: 10px;padding-right: 10px;" class="default-inputfield send-pushbtn">Send Push Notification</button>                  
                 </div>
 
+                <!--Spinner-->
+                <div style="" class="spinner-tggle"> 
+                  <div style="width: 60px;height: 60px;" class="flex-general-column-wrapper-center">
+                        <div style="" class="loader-circle advanced flex-general-column-wrapper-center">                        
+                        </div>                        
+                  </div>                 
+                </div>
+                <!--/Spinner-->
+
               </div>
               <!--Enable or Disable Button-->
 
@@ -72,6 +81,7 @@ $(document).ready(function(){
   var elem = document.querySelector('.js-switch');
   var init = new Switchery(elem);
   $(".toogle-btn").hide();
+  $(".spinner-tggle").hide();
   $(".errortxt").text("");
 
 });
@@ -96,29 +106,35 @@ sendpushbtn.addEventListener('click', function() {
 
 
 function enableNotifications(){
+  $(".spinner-tggle").show();
   CB.CloudPush.enableWebNotifications({
       success:function(){
           //Enabled
           $(".toogle-btn").show();
+          $(".spinner-tggle").hide();
       },
       error:function(error){
           console.log(error);
           $(".toogle-btn").hide();
           $(".errortxt").text(error);
+          $(".spinner-tggle").hide();
       }
   });
 }
 
 function disableNotifications(){
+  $(".spinner-tggle").show();
   CB.CloudPush.disableWebNotifications({
       success:function(){
           //Disabled
           $(".toogle-btn").hide();
+          $(".spinner-tggle").hide();
       },
       error:function(error){
           console.log(error);
           $(".toogle-btn").hide();
           $(".errortxt").text(error);
+          $(".spinner-tggle").hide();
       }
   });
 }

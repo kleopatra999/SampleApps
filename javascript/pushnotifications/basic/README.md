@@ -3,7 +3,7 @@
 
 ## Test this app.
 
-Goto https://cloudboost.github.io/SampleApps/javascript/pushnotifications/basic to test push nnotifications in your browser.   
+Goto [https://cloudboost.github.io/SampleApps/javascript/pushnotifications/basic](https://cloudboost.github.io/SampleApps/javascript/pushnotifications/basic) to test push nnotifications in your browser.   
 
 ## Steps to run this project locally.
 

@@ -70,13 +70,13 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 <!--<script src="https://cloudboost.io/js-sdk/cloudboost.js"></script>-->
-<script src="https://cloudboost.io/js-sdk/cloudboost.js"></script>
+<script src="cloudboost.js"></script>
 <script src="bower_components/switchery/dist/switchery.js"></script> 
 <script>
 
 
 $(document).ready(function(){
-  CB.CloudApp.init("nbiigrzrkrek", "aa7c73bf-5163-45d4-94e0-4dc834350d16");
+  CB.CloudApp.init("http://localhost:4730","hxwhhtrdyntw", "84da73c3-11ae-461d-a8a2-9ba150229257");
 
   var elem = document.querySelector('.js-switch');
   var init = new Switchery(elem);

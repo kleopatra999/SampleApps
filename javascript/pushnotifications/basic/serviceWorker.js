@@ -1,7 +1,16 @@
 var port;
 
+self.addEventListener('install', function(event) {
+  self.skipWaiting();
+  //Installed
+});
+
+self.addEventListener('activate', function(event) {
+  //Activated
+});
+
 self.addEventListener('push', function(event) {
-  console.log('Received a push message', event);
+  console.log('Received a push message', event);  
   var obj = event.data.json();  
   fireNotification(obj, event);  
 });
